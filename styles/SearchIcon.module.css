@@ -1,7 +1,7 @@
 .container {
   height: 48px;
   width: 48px;
-  background-color: var(--color-dark-primary);
+  background-color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,0 +1,32 @@
+.inputGroupContainer {
+  display: grid;
+  grid-row-gap: 8px;
+  text-align: left;
+}
+
+.inputGroupLabel {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--secondary-font-color);
+}
+
+.inputGroupWrapper {
+  display: flex;
+}
+
+.inputGroupInput {
+  border-radius: 0.5rem;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--primary-font-color);
+  padding: 12px 24px;
+  background-color: var(--secondary-color);
+  width: 100%;
+  border: 2px solid var(--primary-color);
+}
+
+.suffix {
+  position: absolute;
+  margin: 15px 15px 15px 25%;
+  color: var(--note-font-color);
+}

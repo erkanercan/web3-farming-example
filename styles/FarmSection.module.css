@@ -1,0 +1,11 @@
+.container {
+  margin-top: 157px;
+  width: 528px;
+  max-width: 40%;
+}
+
+.disabledGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

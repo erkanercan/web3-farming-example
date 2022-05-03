@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 304px;
+  height: 636px;
+  background-color: var(--secondary-color);
+  padding: 35px 32px 123px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 30px;
+}
+
+.secondaryTitle {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  color: var(--secondary-font-color);
+  line-height: 26px;
+}
+
+.stoneImg {
+  height: 242px;
+  width: 242px;
+  margin-bottom: 16px;
+  mix-blend-mode: screen;
+}
+
+.stoneNote {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--note-font-color);
+  line-height: 18px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+}

@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 304px;
+  height: 760px;
+  background-color: var(--secondary-color);
+  padding: 40px 32px 43px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  line-height: 24px;
+}
+
+.subTitle {
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 22px;
+  line-height: 15.6px;
+  color: var(--note-font-color);
+}
+
+.farmerRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.farmerIndex {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--note-font-color);
+  flex-shrink: 0;
+  width: 60px;
+}
+
+.farmerInfo {
+  display: flex;
+  align-items: center;
+  flex: 3 1;
+}
+
+.farmerImg {
+  height: 32px;
+  width: 32px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.farmerName {
+  font-family: Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  margin-left: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 148px;
+  color: var(--primary-blue-color);
+}
+
+.farmerAmount {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 24px;
+  color: #ffc960;
+}
+
+.divider {
+  width: 100%;
+  border: 2px solid var(--disabled-color);
+  margin-bottom: 16px;
+}

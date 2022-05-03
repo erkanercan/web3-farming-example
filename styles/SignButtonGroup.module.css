@@ -4,18 +4,18 @@
 }
 
 .signButton button {
-  color: var(--color-pure-white);
+  color: var(--pure-white-color);
   height: 100%;
   width: 120px;
   border: none;
 }
 
 .signButton button:first-child {
-  background-color: var(--color-dark-primary);
+  background-color: var(--primary-color);
   border-radius: 10px 0 0 10px;
 }
 
 .signButton button:last-child {
-  background-color: var(--color-blue-primary);
+  background-color: var(--primary-blue-color);
   border-radius: 0 10px 10px 0;
 }

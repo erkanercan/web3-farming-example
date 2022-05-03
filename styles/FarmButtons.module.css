@@ -1,0 +1,32 @@
+/*TODO: edit css*/
+
+.container {
+  display: flex;
+  margin-bottom: 90px;
+  margin-top: 1rem;
+}
+
+.farmButton {
+  margin-right: 32px;
+  border-radius: 0.5rem;
+  height: 48px;
+  width: 100%;
+  background-color: var(--primary-blue-color);
+  color: var(--primary-font-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  border: none;
+}
+
+.unFarmButton {
+  border-radius: 0.5rem;
+  height: 48px;
+  width: 100%;
+  color: var(--primary-font-color);
+  background-color: var(--disabled-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  border: none;
+}
