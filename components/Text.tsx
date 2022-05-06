@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   text: string;
@@ -19,9 +19,9 @@ const Text: React.FC<TextProps> = ({
     <p
       style={{
         fontSize: textSize,
-        lineHeight: lineHeight,
-        color: color,
-        fontWeight: fontWeight,
+        lineHeight,
+        color,
+        fontWeight,
       }}
     >
       {text}

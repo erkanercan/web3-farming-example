@@ -1,16 +1,14 @@
-import { FC } from "react";
+import type { FC } from "react";
+
 import styles from "../styles/InputGroup.module.css";
 
 interface InputGroupProps {
   name: string;
   label: string;
   type: string;
-  value: string | number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  error?: string;
-  info?: string;
-  className?: string;
+
   disabled?: boolean;
   suffix?: string;
 }
@@ -19,7 +17,6 @@ const InputGroup: FC<InputGroupProps> = ({
   name,
   label,
   placeholder,
-  value,
   type,
   onChange,
   disabled,

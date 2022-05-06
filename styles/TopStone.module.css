@@ -75,3 +75,21 @@
   border: 2px solid var(--disabled-color);
   margin-bottom: 16px;
 }
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 348px;
+  }
+}

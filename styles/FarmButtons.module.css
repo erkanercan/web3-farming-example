@@ -30,3 +30,21 @@
   line-height: 19px;
   border: none;
 }
+
+@media (max-width: 768px) {
+  .container {
+    margin-bottom: 48px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    margin-bottom: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin-bottom: 48px;
+  }
+}

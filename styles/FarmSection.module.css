@@ -1,5 +1,4 @@
 .container {
-  margin-top: 157px;
   width: 528px;
   max-width: 40%;
 }
@@ -8,4 +7,25 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: 478px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    height: 478px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    height: 478px;
+    max-width: 100%;
+  }
 }

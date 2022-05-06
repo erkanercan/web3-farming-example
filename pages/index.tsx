@@ -1,13 +1,14 @@
 import type { NextPage } from "next";
 import Image from "next/image";
+
 import Card from "../components/Card";
+import FarmButtons from "../components/FarmButtons";
 import Header from "../components/Header";
+import InputGroup from "../components/InputGroup";
+import farmSectionStyles from "../styles/FarmSection.module.css";
 import styles from "../styles/Home.module.css";
 import stoneSupplyStyles from "../styles/StoneSupply.module.css";
 import topStoneStyles from "../styles/TopStone.module.css";
-import farmSectionStyles from "../styles/FarmSection.module.css";
-import InputGroup from "../components/InputGroup";
-import FarmButtons from "../components/FarmButtons";
 
 const farmers = [
   {
@@ -78,7 +79,6 @@ const Home: NextPage = () => {
               name="amount"
               label="EXT Amount"
               placeholder="Enter EXT Amount"
-              value={0}
               type="number"
               onChange={() => {}}
               suffix="EXT"
@@ -89,7 +89,6 @@ const Home: NextPage = () => {
                 name="earned"
                 label="Earned Stones"
                 placeholder="-"
-                value={0}
                 type="number"
                 disabled
               />
@@ -97,7 +96,6 @@ const Home: NextPage = () => {
                 name="balance"
                 label="EXT Balance"
                 placeholder="-"
-                value={0}
                 type="number"
                 disabled
               />
@@ -105,7 +103,6 @@ const Home: NextPage = () => {
                 name="locked"
                 label="Locked EXT"
                 placeholder="-"
-                value={0}
                 type="number"
                 disabled
               />
@@ -118,10 +115,14 @@ const Home: NextPage = () => {
             </p>
 
             {farmers.map((farmer, index) => (
-              <div className={topStoneStyles.farmerRow}>
+              <div
+                className={topStoneStyles.farmerRow}
+                key={`${farmer.amount}-${farmer.name}`}
+              >
                 <div className={topStoneStyles.farmerIndex}>{index + 1}.</div>
                 <div className={topStoneStyles.farmerInfo}>
                   <img
+                    alt="farmer"
                     className={topStoneStyles.farmerImg}
                     src="https://source.unsplash.com/user/c_v_r/32x32"
                   />
@@ -141,8 +142,10 @@ const Home: NextPage = () => {
               <div className={topStoneStyles.farmerIndex}>999.</div>
               <div className={topStoneStyles.farmerInfo}>
                 <img
+                  alt="farmer"
                   className={topStoneStyles.farmerImg}
                   src="https://source.unsplash.com/user/c_v_r/32x32"
+                  loading="lazy"
                 />
                 <div className={topStoneStyles.farmerAmountInfo}>
                   <div className={topStoneStyles.farmerName}>@Erkan</div>

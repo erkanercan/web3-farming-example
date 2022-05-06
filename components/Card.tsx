@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 
 const Card: FC<any> = ({ children, className }) => (
   <div className={className}>{children}</div>

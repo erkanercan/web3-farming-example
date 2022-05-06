@@ -1,23 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useCallback, useState } from "react";
+
 import menuData from "../data/menuData";
 import styles from "../styles/Header.module.css";
+
 import SearchIcon from "./SearchIcon";
 import SignButtonGroup from "./SignButtonGroup";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleMenuOpen = useCallback(() => {
+    setIsOpen(!isOpen);
+  }, [isOpen]);
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <nav className={styles.navContainer}>
           <figure className={styles.logo}>
-            <Image src="/extrawatts.svg" height={24} width={162} />
+            <Image
+              alt="extrawatts logo"
+              src="/extrawatts.svg"
+              height={24}
+              width={162}
+            />
           </figure>
           <div className={styles.desktopNav}>
             <div className={styles.leftContainer}>
               {menuData.map((item, index) => {
                 return (
-                  <Link href={item.path}>
+                  <Link href={item.path} key={item.name}>
                     <div
                       className={`${styles.menuItem} ${
                         // EXP: Hardcoded the index for the task, but it can be dynamic according to the menu
@@ -36,9 +48,30 @@ const Header = () => {
               <SignButtonGroup />
             </div>
           </div>
-          <div className={styles.mobileNav}></div>
+          <div className={styles.mobileNav}>
+            <button type="button" onClick={handleMenuOpen}>
+              <figure>
+                {isOpen ? (
+                  <Image
+                    alt="close menu"
+                    src="/closeIcon.svg"
+                    height={32}
+                    width={32}
+                  />
+                ) : (
+                  <Image
+                    alt="open menu"
+                    src="/menuIcon.svg"
+                    height={32}
+                    width={32}
+                  />
+                )}
+              </figure>
+            </button>
+          </div>
         </nav>
       </div>
+      {isOpen && <div className={styles.mobileMenu}>aaaaaaaa</div>}
     </header>
   );
 };
