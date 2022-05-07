@@ -1,11 +1,18 @@
+import type { FC } from "react";
 import React from "react";
 
 import styles from "../styles/SignButtonGroup.module.css";
 
-const SignButtonGroup = () => {
+interface SignButtonGroupProps {
+  onLogin?: () => void;
+}
+
+const SignButtonGroup: FC<SignButtonGroupProps> = ({ onLogin }) => {
   return (
     <div className={styles.signButton}>
-      <button type="button">Log in</button>
+      <button type="button" onClick={onLogin}>
+        Log in
+      </button>
       <button type="button">Sign up</button>
     </div>
   );

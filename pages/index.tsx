@@ -1,10 +1,12 @@
 import type { NextPage } from "next";
 import Image from "next/image";
+import { useCallback, useState } from "react";
 
 import Card from "../components/Card";
 import FarmButtons from "../components/FarmButtons";
 import Header from "../components/Header";
 import InputGroup from "../components/InputGroup";
+import Modal from "../components/Modal";
 import farmSectionStyles from "../styles/FarmSection.module.css";
 import styles from "../styles/Home.module.css";
 import stoneSupplyStyles from "../styles/StoneSupply.module.css";
@@ -54,10 +56,16 @@ const farmers = [
 ];
 
 const Home: NextPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleLogin = useCallback(() => {
+    setIsModalOpen(true);
+  }, []);
   return (
     <div>
-      <Header />
+      <Header handleLogin={handleLogin} />
       <main className={styles.main}>
+        <Modal show={isModalOpen} />
         <div className={styles.farmPageContainer}>
           <Card className={stoneSupplyStyles.container}>
             <h2 className={stoneSupplyStyles.title}>Stone Supply</h2>

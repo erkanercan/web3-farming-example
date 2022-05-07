@@ -51,6 +51,20 @@
   height: 100%;
 }
 
+.mobileMenu {
+  background-color: var(--primary-color);
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 9999;
+  overflow-x: hidden;
+  transition: all 0.3s ease-in-out;
+  padding: 50px 20px;
+}
+
 .logo {
   margin-right: 72px;
   cursor: pointer;
@@ -58,6 +72,18 @@
 
 .menuItem {
   height: 100%;
+  color: var(--primary-font-color);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  line-height: 19px;
+}
+
+.mobileMenuItem {
   color: var(--primary-font-color);
   text-decoration: none;
   transition: all 0.2s ease-in-out;

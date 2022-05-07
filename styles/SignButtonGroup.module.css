@@ -5,7 +5,7 @@
 
 .signButton button {
   color: var(--pure-white-color);
-  height: 100%;
+  height: 48px;
   width: 120px;
   border: none;
 }

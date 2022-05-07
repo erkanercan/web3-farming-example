@@ -1,0 +1,99 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(65px);
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  width: 528px;
+  height: 423px;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.closeIcon {
+  display: inline-block;
+  cursor: pointer;
+  padding: 22px 22px 0 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  padding: 0 112px;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--primary-font-color);
+  line-height: 30px;
+  margin-bottom: 32px;
+}
+
+.providerLogosContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.providerLogo {
+  cursor: pointer;
+}
+
+.providerTitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.2px;
+  color: #aaaaaa;
+}
+
+.connectButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--primary-blue-color);
+  color: var(--primary-font-color);
+  margin-bottom: 13px;
+  cursor: pointer;
+}
+
+.footerTextContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  color: var(--note-font-color);
+}
+
+.skipText {
+  color: var(--primary-blue-color);
+  cursor: pointer;
+}
