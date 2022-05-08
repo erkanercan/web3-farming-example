@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import Image from "next/image";
 import type { FC } from "react";
 import { useEffect, useState } from "react";
@@ -9,10 +12,16 @@ interface ModalProps {
 }
 
 const Modal: FC<ModalProps> = ({ show }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedWallet, setSelectedWallet] = useState<number | null>(null);
   useEffect(() => {
     setIsModalOpen(show);
   }, [show]);
+
+  const handleWalletSelect = (event: React.MouseEvent<HTMLElement>) => {
+    setSelectedWallet(Number(event.currentTarget.id));
+  };
+
   if (!isModalOpen) {
     return null;
   }
@@ -35,8 +44,12 @@ const Modal: FC<ModalProps> = ({ show }) => {
         <div className={styles.body}>
           <span className={styles.title}>Connect wallet</span>
           <div className={styles.providerLogosContainer}>
-            <div>
-              <figure className={styles.providerLogo}>
+            <div onClick={handleWalletSelect} id="0">
+              <figure
+                className={`${styles.providerLogo} ${
+                  selectedWallet === 0 && styles.providerLogoSelected
+                }`}
+              >
                 <Image
                   alt="metamask-icon"
                   src="/metamask.svg"
@@ -46,8 +59,12 @@ const Modal: FC<ModalProps> = ({ show }) => {
               </figure>
               <span className={styles.providerTitle}>Metamask</span>
             </div>
-            <div>
-              <figure className={styles.providerLogo}>
+            <div onClick={handleWalletSelect} id="1">
+              <figure
+                className={`${styles.providerLogo} ${
+                  selectedWallet === 1 && styles.providerLogoSelected
+                }`}
+              >
                 <Image
                   alt="walletconnect-icon"
                   src="/walletc.svg"
