@@ -50,3 +50,24 @@ export const farmers = [
     amount: "1,000",
   },
 ];
+
+// EXP: Hardcoded menu data for the task, because the task does not include a valid link for them to use.
+// So I assigned them a hardcoded # link. And made farming page the index page.
+export const menuData = [
+  {
+    name: "Marketplace",
+    path: "#",
+  },
+  {
+    name: "Get EXT",
+    path: "#",
+  },
+  {
+    name: "Farm Stones",
+    path: "/",
+  },
+  {
+    name: "Staking",
+    path: "#",
+  },
+];

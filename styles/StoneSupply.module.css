@@ -45,16 +45,8 @@
   }
 }
 
-@media (max-width: 576px) {
-  .container {
-    margin-bottom: 32px;
-    width: 100%;
-  }
-}
-
 @media (max-width: 480px) {
   .container {
-    margin-bottom: 32px;
     width: 348px;
     height: 542px;
   }

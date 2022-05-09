@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { FC } from "react";
 import { useCallback, useState } from "react";
+import { menuData } from "../constants";
 
-import menuData from "../data/menuData";
 import styles from "../styles/Header.module.css";
 
 import SearchIcon from "./SearchIcon";
