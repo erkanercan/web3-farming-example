@@ -40,6 +40,14 @@
   padding: 0 112px;
 }
 
+.connectingText {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 48px;
+  align-self: center;
+}
+
 .title {
   font-size: 25px;
   font-weight: 700;
@@ -50,7 +58,6 @@
 
 .providerLogosContainer {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
   margin-bottom: 24px;
@@ -101,4 +108,27 @@
 .skipText {
   color: var(--primary-blue-color);
   cursor: pointer;
+}
+
+.logo {
+  display: none;
+}
+
+@media screen and (max-width: 528px) {
+  .content {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  .body {
+    padding: 50px 21px;
+  }
+  .logo {
+    display: block;
+    padding-left: 21px;
+  }
+  .header {
+    justify-content: space-between;
+    align-items: baseline;
+  }
 }

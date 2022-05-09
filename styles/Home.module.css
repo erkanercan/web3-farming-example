@@ -1,5 +1,7 @@
 .main {
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .farmPageContainer {
@@ -8,7 +10,7 @@
   padding-top: 41px;
   width: 100%;
   margin: 0;
-  align-items: center;
+  max-width: 1312px;
 }
 
 @media (max-width: 1900px) {

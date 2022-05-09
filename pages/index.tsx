@@ -1,71 +1,92 @@
+/* eslint-disable no-console */
+import { useWeb3React } from "@web3-react/core";
 import type { NextPage } from "next";
 import Image from "next/image";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import Card from "../components/Card";
 import FarmButtons from "../components/FarmButtons";
 import Header from "../components/Header";
 import InputGroup from "../components/InputGroup";
 import Modal from "../components/Modal";
+import { farmers } from "../constants";
+import { useRewardedStonesAndLockedAmount } from "../hooks/useRewardedStonesAndLockedAmount";
 import farmSectionStyles from "../styles/FarmSection.module.css";
 import styles from "../styles/Home.module.css";
 import stoneSupplyStyles from "../styles/StoneSupply.module.css";
 import topStoneStyles from "../styles/TopStone.module.css";
-
-const farmers = [
-  {
-    name: "John Doe",
-    amount: "1,000",
-  },
-  {
-    name: "Jane Doe",
-    amount: "1,000",
-  },
-  {
-    name: "Jack Doe",
-    amount: "1,000",
-  },
-  {
-    name: "Jill Doe",
-    amount: "1,000",
-  },
-  {
-    name: "John Doe",
-    amount: "1,000",
-  },
-  {
-    name: "Jane Doe",
-    amount: "1,000",
-  },
-  {
-    name: "Jack Doe",
-    amount: "1,000",
-  },
-  {
-    name: "Jill Doe",
-    amount: "1,000",
-  },
-  {
-    name: "John Doe",
-    amount: "1,000",
-  },
-  {
-    name: "Jane Doe",
-    amount: "1,000",
-  },
-];
+import { connectors, checkIfChainIsSupported } from "../utils/connectors";
+import { farmTokens, unfarmTokens } from "../utils/transactions";
 
 const Home: NextPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [extAmount, setEXTAmount] = useState(0);
+  const { rewardedStones, lockedAmount, extBalance } =
+    useRewardedStonesAndLockedAmount();
+  const { account, activate, chainId } = useWeb3React();
+
+  useEffect(() => {
+    if (!account) {
+      activate(connectors.injected);
+    }
+  }, []);
+
+  useEffect(() => {
+    const supported = checkIfChainIsSupported(chainId);
+    if (!supported && account) {
+      setIsModalOpen(true);
+    }
+  }, [account, chainId]);
 
   const handleLogin = useCallback(() => {
     setIsModalOpen(true);
   }, []);
+
+  const handleEXTAmountChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setEXTAmount(Number(event.target.value));
+    },
+    []
+  );
+
+  const decideFarmButtonDisabled = useCallback(() => {
+    if (extAmount <= 0 || extAmount > extBalance) {
+      // Disabled
+      return true;
+    }
+    // Enabled
+    return false;
+  }, [extAmount, extBalance]);
+
+  const decideUnfarmButtonDisabled = useCallback(() => {
+    if (extAmount <= 0 || extAmount > lockedAmount) {
+      // Disabled
+      return true;
+    }
+    // Enabled
+    return false;
+  }, [extAmount, lockedAmount]);
+
+  const handleModalClose = useCallback(() => {
+    const supported = checkIfChainIsSupported(chainId);
+    if (supported) {
+      setIsModalOpen(false);
+    }
+  }, [chainId]);
+
+  const handleFarmButtonClick = useCallback(() => {
+    if (account) farmTokens(extAmount, account);
+  }, [account, extAmount]);
+
+  const handleUnfarmButtonClick = useCallback(() => {
+    if (account) unfarmTokens(extAmount);
+  }, [account, extAmount]);
+
   return (
-    <div>
+    <div className={styles.container}>
       <Header handleLogin={handleLogin} />
       <main className={styles.main}>
-        <Modal show={isModalOpen} />
+        <Modal show={isModalOpen} onClose={handleModalClose} />
         <div className={styles.farmPageContainer}>
           <Card className={stoneSupplyStyles.container}>
             <h2 className={stoneSupplyStyles.title}>Stone Supply</h2>
@@ -73,7 +94,12 @@ const Home: NextPage = () => {
               Lock your EXT to farm stones and redeem exclusive NFTs.
             </p>
             <div className={stoneSupplyStyles.stoneImg}>
-              <Image src="/stone-supply.png" width={242} height={242} />
+              <Image
+                alt="stone-supply"
+                src="/stone-supply.png"
+                width={242}
+                height={242}
+              />
             </div>
             <p className={stoneSupplyStyles.stoneNote}>
               The farming rate is 1000 stones per EXT every 24 hours.This will
@@ -88,10 +114,17 @@ const Home: NextPage = () => {
               label="EXT Amount"
               placeholder="Enter EXT Amount"
               type="number"
-              onChange={() => {}}
               suffix="EXT"
+              value={extAmount}
+              onChange={handleEXTAmountChange}
+              disabled={!account}
             />
-            <FarmButtons />
+            <FarmButtons
+              isFarmButtonDisabled={decideFarmButtonDisabled()}
+              isUnfarmButtonDisabled={decideUnfarmButtonDisabled()}
+              onFarmButtonClick={handleFarmButtonClick}
+              onUnfarmButtonClick={handleUnfarmButtonClick}
+            />
             <div className={farmSectionStyles.disabledGroup}>
               <InputGroup
                 name="earned"
@@ -99,6 +132,7 @@ const Home: NextPage = () => {
                 placeholder="-"
                 type="number"
                 disabled
+                value={rewardedStones}
               />
               <InputGroup
                 name="balance"
@@ -106,6 +140,7 @@ const Home: NextPage = () => {
                 placeholder="-"
                 type="number"
                 disabled
+                value={extBalance}
               />
               <InputGroup
                 name="locked"
@@ -113,6 +148,7 @@ const Home: NextPage = () => {
                 placeholder="-"
                 type="number"
                 disabled
+                value={lockedAmount}
               />
             </div>
           </Card>

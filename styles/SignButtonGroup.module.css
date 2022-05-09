@@ -12,10 +12,26 @@
 
 .signButton button:first-child {
   background-color: var(--primary-color);
-  border-radius: 10px 0 0 10px;
+  border-radius: 20px 0 0 20px;
 }
 
 .signButton button:last-child {
   background-color: var(--primary-blue-color);
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 20px 20px 0;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 768px) {
+  .signButton {
+    width: 310px;
+    margin-bottom: 52px;
+  }
+
+  .signButton button:first-child {
+    background-color: var(--secondary-color);
+    width: 160px;
+  }
+  .signButton button:last-child {
+    width: 150px;
+  }
 }

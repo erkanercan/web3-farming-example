@@ -1,4 +1,5 @@
 .container {
+  margin-top: 116px;
   width: 528px;
   max-width: 40%;
 }
@@ -13,19 +14,6 @@
   .container {
     height: 478px;
     max-width: 100%;
-  }
-}
-
-@media (max-width: 576px) {
-  .container {
-    height: 478px;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    height: 478px;
-    max-width: 100%;
+    margin: 0;
   }
 }

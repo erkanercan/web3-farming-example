@@ -8,7 +8,7 @@ interface InputGroupProps {
   type: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-
+  value?: number;
   disabled?: boolean;
   suffix?: string;
 }
@@ -21,6 +21,7 @@ const InputGroup: FC<InputGroupProps> = ({
   onChange,
   disabled,
   suffix,
+  value,
 }) => {
   return (
     <div className={styles.inputGroupContainer}>
@@ -35,7 +36,7 @@ const InputGroup: FC<InputGroupProps> = ({
           type={type}
           name={name}
           placeholder={placeholder}
-          value=""
+          value={(value && value > 0 && value) || ""}
           onChange={onChange}
         />
         {suffix && <div className={styles.suffix}>{suffix}</div>}

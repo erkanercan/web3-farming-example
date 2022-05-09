@@ -12,21 +12,30 @@
 
 .inputGroupWrapper {
   display: flex;
+  border: 2px solid var(--primary-color);
+  border-radius: 0.5rem;
+  color: var(--primary-font-color);
+  background-color: var(--secondary-color);
 }
 
 .inputGroupInput {
-  border-radius: 0.5rem;
   font-size: 16px;
   font-weight: 400;
-  color: var(--primary-font-color);
-  padding: 12px 24px;
   background-color: var(--secondary-color);
-  width: 100%;
-  border: 2px solid var(--primary-color);
+  width: 85%;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 0.5rem;
+  color: var(--primary-font-color);
+}
+
+.inputGroupInput:disabled {
+  color: var(--note-font-color);
+  cursor: not-allowed;
 }
 
 .suffix {
-  position: absolute;
-  margin: 15px 15px 15px 25%;
+  width: 10%;
+  padding: 12px 0 0 15px;
   color: var(--note-font-color);
 }
