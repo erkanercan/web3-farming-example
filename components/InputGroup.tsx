@@ -11,6 +11,7 @@ interface InputGroupProps {
   value?: number;
   disabled?: boolean;
   suffix?: string;
+  errMessage?: string;
 }
 
 const InputGroup: FC<InputGroupProps> = ({
@@ -22,6 +23,7 @@ const InputGroup: FC<InputGroupProps> = ({
   disabled,
   suffix,
   value,
+  errMessage,
 }) => {
   return (
     <div className={styles.inputGroupContainer}>
@@ -41,6 +43,7 @@ const InputGroup: FC<InputGroupProps> = ({
         />
         {suffix && <div className={styles.suffix}>{suffix}</div>}
       </div>
+      {errMessage && <div className={styles.errMessage}>{errMessage}</div>}
     </div>
   );
 };

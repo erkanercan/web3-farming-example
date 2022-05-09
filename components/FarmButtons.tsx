@@ -7,6 +7,7 @@ interface FarmButtonsProps {
   isUnfarmButtonDisabled: boolean;
   onFarmButtonClick: () => void;
   onUnfarmButtonClick: () => void;
+  loading: boolean;
 }
 
 const FarmButtons: FC<FarmButtonsProps> = ({
@@ -14,6 +15,7 @@ const FarmButtons: FC<FarmButtonsProps> = ({
   isUnfarmButtonDisabled,
   onFarmButtonClick,
   onUnfarmButtonClick,
+  loading = true,
 }) => {
   return (
     <div className={styles.container}>
@@ -22,14 +24,14 @@ const FarmButtons: FC<FarmButtonsProps> = ({
         disabled={isFarmButtonDisabled}
         type="button"
       >
-        Farm
+        {loading ? <div className={styles.loadingSpinner} /> : "Farm"}
       </button>
       <button
         onClick={onUnfarmButtonClick}
         disabled={isUnfarmButtonDisabled}
         type="button"
       >
-        Unfarm
+        {loading ? <div className={styles.loadingSpinner} /> : "Unfarm"}
       </button>
     </div>
   );

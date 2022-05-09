@@ -39,3 +39,10 @@
   padding: 12px 0 0 15px;
   color: var(--note-font-color);
 }
+
+.errMessage {
+  font-size: 16px;
+  font-weight: 400;
+  color: #ff9494;
+  margin-top: 4px;
+}
